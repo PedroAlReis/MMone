@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="658.0" prefWidth="1265.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mone.controller.MainController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane dividerPositions="0.25" prefHeight="643.0" prefWidth="918.0">
+        <items>
+          <AnchorPane fx:id="sidebar" minHeight="0.0" minWidth="0.0" prefHeight="719.0" prefWidth="629.0" style="-fx-background-color: black;">
+               <children>
+                  <Button fx:id="livros" layoutX="57.0" layoutY="158.0" mnemonicParsing="false" onAction="#showLivros" style="-fx-background-color: transparent;" text="Livros" textFill="WHITE">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
+                  <Button fx:id="processos" layoutX="174.0" layoutY="158.0" mnemonicParsing="false" onAction="#showProcessos" style="-fx-background-color: transparent;" text="Processos" textFill="WHITE">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
+                  <Button fx:id="usuarios" layoutX="57.0" layoutY="188.0" mnemonicParsing="false" onAction="#showUsuarios" style="-fx-background-color: transparent;" text="Usuários" textFill="WHITE">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
+                  <Button fx:id="menu" layoutX="197.0" layoutY="188.0" mnemonicParsing="false" onAction="#showMenu" style="-fx-background-color: transparent;" text="Menu" textFill="WHITE" />
+                  <Button fx:id="Configurações" layoutX="101.0" layoutY="230.0" mnemonicParsing="false" onAction="#showConfiguracao" prefHeight="36.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Configurações" textFill="WHITE" />
+                  <ImageView fitHeight="167.0" fitWidth="267.0" layoutX="25.0" layoutY="461.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="641.0" prefWidth="781.0">
+               <children>
+                  <StackPane fx:id="main" layoutX="-2.0" layoutY="-2.0" prefHeight="636.0" prefWidth="952.0">
+                     <children>
+                        <AnchorPane fx:id="painelUsuarios" prefHeight="636.0" prefWidth="933.0" visible="false">
+                           <children>
+                              <VBox alignment="TOP_CENTER" layoutX="26.0" layoutY="23.0" prefHeight="590.0" prefWidth="901.0" spacing="15.0">
+                                 <children>
+                                    <Label alignment="CENTER" style="-fx-font-size: 30;" text="Usuários" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Leelawadee UI" size="24.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Gerenciamento de Usuários" textAlignment="CENTER" />
+                                    <HBox alignment="CENTER" prefHeight="42.0" prefWidth="884.0" spacing="20.0" style="-fx-background-color: #D3D3D3;">
+                                       <children>
+                                          <TextField fx:id="barraUsuField" prefHeight="33.0" prefWidth="232.0" promptText="Digite o Usuário/ID/Nome" />
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tabelaUsuario" prefHeight="354.0" prefWidth="901.0" style="-fx-border-color: black;">
+                                      <columns>
+                                        <TableColumn fx:id="nomeUsuTabela" prefWidth="75.0" text="Nome" />
+                                        <TableColumn fx:id="nomeUUsuTabela" prefWidth="113.0" text="Nome de Usuário" />
+                                          <TableColumn fx:id="nivelInfoTabela" prefWidth="125.0" text="Nivel de Informação" />
+                                          <TableColumn fx:id="statusUsuTabela" prefWidth="70.0" text="Status" />
+                                          <TableColumn fx:id="idUsuTabela" prefWidth="102.0" text="ID" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox alignment="CENTER" prefHeight="42.0" prefWidth="884.0" spacing="10.0" style="-fx-background-color: #D3D3D3;">
+                                       <children>
+                                          <Button fx:id="novoUsuario" mnemonicParsing="false" onAction="#criarUsuario" style="-fx-background-color: black;" text="Novo Usuário" />
+                                          <Button fx:id="deletarUsuario" mnemonicParsing="false" onAction="#apagarUsuario" style="-fx-background-color: black;" text="Deletar" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="painelLivros" prefHeight="200.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="15.0" prefHeight="590.0" prefWidth="901.0" spacing="15.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 30;" text="Livros">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Gerenciamento de Livros" />
+                                    <HBox alignment="CENTER" prefHeight="42.0" prefWidth="884.0" spacing="20.0" style="-fx-background-color: #D3D3D3;" styleClass="hbox">
+                                       <children>
+                                          <TextField fx:id="barraLivroField" alignment="CENTER" prefHeight="33.0" prefWidth="232.0" promptText="Digite o Titulo/ID/Autor" />
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tabelaLivros" prefHeight="354.0" prefWidth="901.0" style="-fx-border-color: black;">
+                                      <columns>
+                                        <TableColumn fx:id="tituloLivroTabela" prefWidth="75.0" text="tituloLiTabela" />
+                                        <TableColumn fx:id="autorLivroTabela" prefWidth="75.0" text="autorLiTabela" />
+                                          <TableColumn fx:id="editoraLivroTabela" prefWidth="129.0" text="editoraLiTabela" />
+                                          <TableColumn fx:id="dataCriacaoLivTabela" prefWidth="122.0" text="dataCriaçãoLivTabela" />
+                                          <TableColumn fx:id="estoqueLivroTabela" prefWidth="122.0" text="estoqueLiTabela" />
+                                          <TableColumn fx:id="idLivroTabela" prefWidth="122.0" text="idLiTabela" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox alignment="CENTER" prefHeight="42.0" prefWidth="884.0" spacing="20.0" style="-fx-background-color: #D3D3D3;">
+                                       <children>
+                                          <Button fx:id="novoLivro" mnemonicParsing="false" onAction="#criarLivro" style="-fx-background-color: black;" text="Novo Livro" />
+                                          <Button fx:id="deletarLivro" mnemonicParsing="false" style="-fx-background-color: black;" text="Deletar">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="painelMenu" prefHeight="636.0" prefWidth="944.0" visible="false">
+                           <children>
+                              <VBox alignment="TOP_CENTER" layoutX="22.0" layoutY="23.0" prefHeight="590.0" prefWidth="901.0" spacing="15.0">
+                                 <children>
+                                    <Label alignment="CENTER" style="-fx-font-size: 30;" text="Bem Vindo ao Monê! " underline="true">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                       <effect>
+                                          <Blend />
+                                       </effect>
+                                    </Label>
+                                    <Label text="O melhor sistema de gerenciamento de comércio bibliotecario das Américas!" />
+                                    <HBox prefHeight="208.0" prefWidth="901.0" spacing="20.0" style="-fx-background-color: white;">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" prefHeight="248.0" prefWidth="245.0" spacing="10.0" style="-fx-background-color: #BEBEBE; -fx-border-color: black;">
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="19.0" prefWidth="61.0" style="-fx-font-size: 15;" text="Usuários" underline="true">
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="164.0" text="Verifique todos os funcionarios cadastrados em seu estabelecimento e consiga configurar-los como quiser!" textAlignment="CENTER" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="248.0" prefWidth="245.0" spacing="20.0" style="-fx-background-color: #BEBEBE; -fx-border-color: black;">
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="18.0" prefWidth="47.0" style="-fx-font-size: 15;" text="Livros" underline="true">
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label prefHeight="105.0" prefWidth="163.0" text="Verifique seu estoque de livros e consiga controlar a permanencia de seus produtos sem perder o ritmo!" textAlignment="CENTER" wrapText="true" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="TOP_CENTER" layoutX="255.0" layoutY="10.0" prefHeight="248.0" prefWidth="245.0" style="-fx-background-color: #BEBEBE; -fx-border-color: black;">
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label alignment="CENTER" style="-fx-font-size: 15;" text="Processos" underline="true">
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label prefHeight="105.0" prefWidth="166.0" text="Verifique todos os processos de entrada e saida de produtos e consiga monitorar todas as suas vendas!" textAlignment="CENTER" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="TOP_CENTER" layoutX="500.0" layoutY="10.0" prefHeight="248.0" prefWidth="245.0" style="-fx-background-color: #BEBEBE; -fx-border-color: black;">
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label alignment="CENTER" style="-fx-font-size: 15;" text="Configurações" underline="true">
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label prefHeight="113.0" prefWidth="166.0" text="Configure todo o seu Monê e consiga personalizar toda a sua experiência para o seu gosto!" textAlignment="CENTER" wrapText="true">
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="painelProcessos" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" layoutX="22.0" layoutY="23.0" prefHeight="590.0" prefWidth="901.0" spacing="15.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 30;" text="Processos">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Gerenciamento de Processos" />
+                                    <HBox alignment="CENTER" prefHeight="42.0" prefWidth="884.0" spacing="20.0" style="-fx-background-color: #D3D3D3;">
+                                       <children>
+                                          <TextField fx:id="barraProField" alignment="CENTER" prefHeight="26.0" prefWidth="197.0" promptText="Digite o ID/Nome do Processo" />
+                                       </children>
+                                    </HBox>
+                                    <TableView prefHeight="354.0" prefWidth="901.0" style="-fx-border-color: black;">
+                                      <columns>
+                                        <TableColumn fx:id="idProTabela" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="dataProTabela" prefWidth="75.0" text="Data" />
+                                          <TableColumn fx:id="nomeProTabela" prefWidth="75.0" text="Nome do Livro:" />
+                                          <TableColumn fx:id="tipoProTabela" prefWidth="75.0" text="Tipo de Processo:" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox alignment="CENTER" prefHeight="42.0" prefWidth="884.0" spacing="20.0" style="-fx-background-color: #D3D3D3;">
+                                       <children>
+                                          <Button fx:id="criarProcesso" mnemonicParsing="false" style="-fx-background-color: black;" text="Novo Processo" textFill="WHITE" />
+                                          <Button fx:id="apagarProcesso" mnemonicParsing="false" style="-fx-background-color: black;" text="Deletar" textFill="WHITE" />
+                                       </children>
+                                    </HBox>
+                                 </children></VBox>
+                           </children>
+                        </AnchorPane>
+                     </children></StackPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</VBox>
